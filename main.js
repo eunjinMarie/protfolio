@@ -19,7 +19,14 @@ navbarMenu.addEventListener('click', (event) => {
   const link = target.dataset.link;
   if (link === null) return;
 
+  navbarMenu.classList.remove('open');
   scrollIntoView(link);
+});
+
+// navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 });
 
 // handle click on "contact me" button on home
