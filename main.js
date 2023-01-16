@@ -59,6 +59,14 @@ workBtnContainer.addEventListener('click', (event) => {
     event.target.dataset.filter || event.target.parentNode.dataset.filter;
   if (filter === null) return;
 
+  // remove selection from the previous item ans select the new one
+  const active = document.querySelector('.category__btn.selected');
+  active.classList.remove('selected');
+
+  const target =
+    event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+  target.classList.add('selected');
+
   projectContainer.classList.add('animation-out');
   setTimeout(() => {
     projects.forEach((project) => {
